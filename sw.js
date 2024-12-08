@@ -1,8 +1,8 @@
 //imports
 importScripts("js/sw-utils.js");
 
-let CACHE_STATIC = "static-v4";
-const CACHE_DYNAMIC = "dynamic-v1";
+let CACHE_STATIC = "static-v5";
+const CACHE_DYNAMIC = "dynamic-v2";
 const CACHE_IMMUTABLE = "immutable-v1";
 
 //APP_SHELL => all that is needed for the application in order to work(need for quick loading)
@@ -100,6 +100,9 @@ self.addEventListener("activate", (event) => {
   const deleteOldCache = caches.keys().then((keys) => {
     keys.forEach((key) => {
       if (key !== CACHE_STATIC && key.includes("static")) {
+        return caches.delete(key);
+      }
+      if (key !== CACHE_DYNAMIC && key.includes("dynamic")) {
         return caches.delete(key);
       }
     });
