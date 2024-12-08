@@ -7,7 +7,7 @@ const CACHE_IMMUTABLE = "immutable-v1";
 
 //APP_SHELL => all that is needed for the application in order to work(need for quick loading)
 const APP_SHELL = [
-  "/",
+  // "/",
   "index.html",
   "css/style.css",
   "css/animate.css",
